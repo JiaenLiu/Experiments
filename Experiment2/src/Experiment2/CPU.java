@@ -1,9 +1,12 @@
+package Experiment2;
+
 class CPU {
     private int Speed;
     private String Brand;
 
 
     CPU() {
+        System.out.println("Use default constructor");
         Speed = 0;
     }
 

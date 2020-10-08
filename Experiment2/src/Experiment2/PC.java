@@ -1,10 +1,19 @@
+package Experiment2;
+
 class PC {
     private CPU cpu;
     private HardDisk HD;
 
     PC() {
+
+        System.out.println("Use default constructor");
         cpu = new CPU();
         HD = new HardDisk();
+    }
+
+    PC(CPU c , HardDisk hd) {
+        cpu = c;
+        HD = hd;
     }
 
     public void setCpu(CPU c) {
