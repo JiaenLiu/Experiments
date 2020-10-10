@@ -50,12 +50,19 @@
 运行结果如下：
 >
 Use default constructor
+>
 Use default constructor
+>
 Use default constructor
+>
 Use default constructor
+
 Use default constructor
+
 Cpu speed: 2200
+
 Cpu brand: Inter
+
 Hard Disk amount: 200
 
 ## 实验感想
