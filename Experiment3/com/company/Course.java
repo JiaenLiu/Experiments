@@ -2,6 +2,9 @@ package com.company;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Course {
 
     private String idNumber;
@@ -11,6 +14,7 @@ public class Course {
     private Teacher teacher;
     private int upperbound;
     private int curNumOfStudents = 0;
+    private List<Student> curStudents = new ArrayList<Student>();
     private int score;
 
     public Course(Integer id, String n, String l, String t1, Teacher t2, int u, int s) {
@@ -45,6 +49,25 @@ public class Course {
     }
 
     //Setters
+
+    public void addStudent(Student student) {
+        curStudents.add(student);
+    }
+
+    public void printCurrentStudents() {
+        for (Student s : curStudents) {
+            String sex = "";
+            if (s.getSex()) {
+                sex = "male";
+            }
+            else {
+                sex = "female";
+            }
+
+            String info = "姓名: " + s.getName() + " 学号: " + s.getIdNumber() + " 性别: " + sex;
+            System.out.println(info);
+        }
+    }
 
     public void addOneStudent() {
         this.curNumOfStudents++ ;

@@ -9,18 +9,30 @@ public class Student extends Member{
     private int scoreUpperbound = 28;
     private int currentScore;
 
-    private void findCurrentScore() {
-        for (Course c : courseToLearn) {
-            currentScore = currentScore + c.getScore();
-        }
-    }
+
 
     public Student(Integer id, String n, boolean sex, int s) {
         super(id,n,sex);
         scoreUpperbound = s;
-        super.setIdNumber(id);
-        super.setName(n);
-        super.setSex(sex);
+    }
+
+    public void clearAll() {
+        courseToLearn.clear();
+    }
+
+    public void unEnrollACourse(Course course) {
+        if (courseToLearn.contains(course)) {
+            courseToLearn.remove(course);
+            System.out.println("Successfully unenroll course " + "\n" + course.toString());
+            return;
+        }
+        System.out.println("You do not enroll this course" + "\n" + course.toString());
+    }
+
+    private void findCurrentScore() {
+        for (Course c : courseToLearn) {
+            currentScore = currentScore + c.getScore();
+        }
     }
 
     @Override
@@ -42,6 +54,7 @@ public class Student extends Member{
             System.out.println("Successfully Added!!!!!!!");
             this.courseToLearn.add(c);
             c.addOneStudent();
+            c.addStudent(this);
         }
     }
 

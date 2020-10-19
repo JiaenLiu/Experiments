@@ -18,22 +18,42 @@ public class Main {
         System.out.println("Test addCourse method:..." + "\n");
         testTeacher1.addCourse(testCourse1);
         testTeacher2.addCourse(testCourse2);
-
+        // Reverse the order
         testTeacher1.addCourse(testCourse2);
         testTeacher2.addCourse(testCourse1);
+
         System.out.println("Test addCourseToLearn method:..." + "\n");
         testStudent1.addCourseToLearn(testCourse1);
         testStudent1.addCourseToLearn(testCourse2);
         testStudent2.addCourseToLearn(testCourse1);
         testStudent2.addCourseToLearn(testCourse2);
+
         System.out.println("Test toString in class Course method:..." + "\n");
         System.out.println(testCourse1);
         System.out.println(testCourse2);
+
         System.out.println("Test toString in class Teacher method:..." + "\n");
         System.out.println(testTeacher1);
         System.out.println(testTeacher2);
+
         System.out.println("Test toString in class Student method:..." + "\n");
         System.out.println(testStudent1);
         System.out.println(testStudent2);
+
+        System.out.println("Test unEnrollACourse in class Teacher..." + "\n");
+        testTeacher1.unEnrollACourse(testCourse1);
+        testTeacher1.unEnrollACourse(testCourse2);
+        testTeacher2.unEnrollACourse(testCourse2);
+        testTeacher2.unEnrollACourse(testCourse1);
+
+        System.out.println("Test unEnrollACourse in class Student..." + "\n");
+        testStudent1.unEnrollACourse(testCourse1);
+        testStudent1.unEnrollACourse(testCourse2);
+        testStudent2.unEnrollACourse(testCourse1);
+        testStudent2.unEnrollACourse(testCourse2);
+
+        System.out.println("Test output all students in a course" + "\n");
+        testCourse1.printCurrentStudents();
+
     }
 }
