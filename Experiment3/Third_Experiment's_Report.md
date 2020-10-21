@@ -60,6 +60,7 @@
     public void addCourseToLearn(Course c) {
         this.findCurrentScore();
         // 这里对应与 class Teacher 这是判断授课列表的大小与授课上限的关系，合取上课程内部教师是否与该教师相同。代码如下：
+        // I use key “This” to get current object and use it to find whether the Teacher object equals to the Teacher object in the course object.
         //if (courseToTeach.size() < upperbound && this.equals(course.getTeacher()))
         if (currentScore + c.getScore() > scoreUpperbound && c.isFull()) {
             System.out.println("You can not choose more course due to your upperbound of scores or the course is full.");
@@ -76,12 +77,38 @@
     //退课方法
     public void unEnrollACourse(Course course) {
         // 两类中的退课方法完全一致。
+        // It is same in previous method.
         if (courseToLearn.contains(course)) {
             courseToLearn.remove(course);
             System.out.println("Successfully unenroll course " + "\n" + course.toString());
             return;
         }
         System.out.println("You do not enroll this course" + "\n" + course.toString());
+    }
+
+    //打印所有选课学生
+    // Print all students who have selected the course.
+    public void addStudent(Student student) {
+        // 该方法用于添加学生至学生列表中
+        // Use this method to add a student to the student list.
+        curStudents.add(student);
+    }
+
+    public void printCurrentStudents() {
+        // 打印出所有的学生
+        // Print out the current student list.
+        for (Student s : curStudents) {
+            String sex = "";
+            if (s.getSex()) {
+                sex = "male";
+            }
+            else {
+                sex = "female";
+            }
+
+            String info = "姓名: " + s.getName() + " 学号: " + s.getIdNumber() + " 性别: " + sex;
+            System.out.println(info);
+        }
     }
 ```
 
@@ -180,6 +207,11 @@ Course ID Number: 888873243 Course Name: Discrete Math
 Location: Library,room 505 Time: Wednesday 7:50-9:25
 Teacher: Wei.
 
+Test output all students in a course
+
+姓名: Liu 学号: 777778888 性别: male
+姓名: Guo 学号: 777779999 性别: female
+
 ## 实验感想
 
-本次实验原理较为简单，只是工作量稍微略大。把握好继承关系已经java class 直接的访问规则和适当实验重载方法即可十分轻松的完成本次实验。
+本次实验原理较为简单，只是工作量稍微略大。把握好继承关系，java class 之间的访问规则，选取合适的辅助类，编写适当的辅助方法和适当的覆写方法即可十分轻松的完成本次实验。
