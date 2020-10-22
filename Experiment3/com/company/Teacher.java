@@ -12,9 +12,19 @@ public class Teacher extends Member {
     public Teacher(Integer id, String n, boolean sex, int u) {
         super(id,n,sex);
         upperbound = u;
-        super.setIdNumber(id);
-        super.setName(n);
-        super.setSex(sex);
+    }
+
+    public void clearAll() {
+        courseToTeach.clear();
+    }
+
+    public void unEnrollACourse(Course course) {
+        if (courseToTeach.contains(course)) {
+            courseToTeach.remove(course);
+            System.out.println("Successfully unenroll course " + "\n" + course.toString());
+            return;
+        }
+        System.out.println("You do not enroll this course" + "\n" + course.toString());
     }
 
     @Override
