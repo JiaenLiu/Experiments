@@ -4,38 +4,64 @@ public class Main {
 
     public static void main(String[] args) {
         // write your code here
-        Postgraduates testOne = new Postgraduates("Liu", true, 5000, 2000);
-        Postgraduates testTwo = new Postgraduates("Guo", false, 5000, 6000);
+        try {
+            // Args
+            String name1 = args[0];
+            String name2 = args[1];
+            boolean sex1 = false;
+            boolean sex2 = false;
+            int tuition = Integer.parseInt(args[4]);
+            int salary1 = Integer.parseInt(args[5]);
+            int salary2 = Integer.parseInt(args[6]);
 
-        // Test method tax
-        System.out.println("TestOne's tax is: " + testOne.tax() + "\n");
 
-        System.out.println("TestTwo's tax is: " + testTwo.tax() + "\n");
+            if (args[2].equals("male")) {
+                sex1 = true;
+            }
 
-        // Test method getSalary
-        System.out.println("Before salary day: " + testOne.getCurrency());
-        testOne.getSalary();
-        System.out.println("After salary day: " + testOne.getCurrency() + "\n");
+            // Test body
 
-        System.out.println("Before salary day: " + testTwo.getCurrency());
-        testTwo.getSalary();
-        System.out.println("After salary day: " + testTwo.getCurrency() + "\n");
+            Postgraduates testOne = new Postgraduates(name1, true, tuition, salary1);
+            Postgraduates testTwo = new Postgraduates(name2, false, tuition, salary2);
+            // Test method tax
+            System.out.println("TestOne's tax is: " + testOne.tax() + "\n");
 
-        // Test method findSalary
-        System.out.println("testOne's salary: " + testOne.findSalary());
-        System.out.println("testTwo's salary: " + testTwo.findSalary() + "\n");
+            System.out.println("TestTwo's tax is: " + testTwo.tax() + "\n");
 
-        // Test method getTuition
-        System.out.println("testOne's tuition: " + testOne.getTuition());
-        System.out.println("testTwo's tuition: " + testTwo.getTuition() + "\n");
+            // Test method getSalary
+            System.out.println("Before salary day: " + testOne.getCurrency());
+            testOne.getSalary();
+            System.out.println("After salary day: " + testOne.getCurrency() + "\n");
 
-        // Test method payTheTuition
-        System.out.println("Before pay the tuition: " + testOne.getCurrency());
-        testOne.payTheTuition();
-        System.out.println("After pay the tuition: " + testOne.getCurrency() + "\n");
+            System.out.println("Before salary day: " + testTwo.getCurrency());
+            testTwo.getSalary();
+            System.out.println("After salary day: " + testTwo.getCurrency() + "\n");
 
-        System.out.println("Before pay the tuition: " + testTwo.getCurrency());
-        testTwo.payTheTuition();
-        System.out.println("After pay the tuition: " + testTwo.getCurrency());
+            // Test method findSalary
+            System.out.println("testOne's salary: " + testOne.findSalary());
+            System.out.println("testTwo's salary: " + testTwo.findSalary() + "\n");
+
+            // Test method getTuition
+            System.out.println("testOne's tuition: " + testOne.getTuition());
+            System.out.println("testTwo's tuition: " + testTwo.getTuition() + "\n");
+
+            // Test method payTheTuition
+            System.out.println("Before pay the tuition: " + testOne.getCurrency());
+            testOne.payTheTuition();
+            System.out.println("After pay the tuition: " + testOne.getCurrency() + "\n");
+
+            System.out.println("Before pay the tuition: " + testTwo.getCurrency());
+            testTwo.payTheTuition();
+            System.out.println("After pay the tuition: " + testTwo.getCurrency());
+
+
+        }
+        catch (Exception e) {
+            System.out.println(e.toString());
+        }
+        finally {
+            System.out.println("Test completed !!!!!");
+        }
+
     }
 }
